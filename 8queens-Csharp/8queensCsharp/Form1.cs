@@ -18,16 +18,9 @@ namespace WindowsFormsApplication1
     {
         //global counter of safe queens
         int numberOfQueens = 0;
-        int A1int = 0, A2int = 0, A3int = 0, A4int = 0, A5int = 0, A6int = 0, A7int = 0, A8int = 0;
-        int B1int = 0, B2int = 0, B3int = 0, B4int = 0, B5int = 0, B6int = 0, B7int = 0, B8int = 0;
-        int C1int = 0, C2int = 0, C3int = 0, C4int = 0, C5int = 0, C6int = 0, C7int = 0, C8int = 0;
-        int D1int = 0, D2int = 0, D3int = 0, D4int = 0, D5int = 0, D6int = 0, D7int = 0, D8int = 0;
-        int E1int = 0, E2int = 0, E3int = 0, E4int = 0, E5int = 0, E6int = 0, E7int = 0, E8int = 0;
-        int F1int = 0, F2int = 0, F3int = 0, F4int = 0, F5int = 0, F6int = 0, F7int = 0, F8int = 0;
-        int G1int = 0, G2int = 0, G3int = 0, G4int = 0, G5int = 0, G6int = 0, G7int = 0, G8int = 0;
-        int H1int = 0, H2int = 0, H3int = 0, H4int = 0, H5int = 0, H6int = 0, H7int = 0, H8int = 0;
-
-
+      
+   
+      
 
 
         public Form1()
@@ -35,160 +28,23 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-
-        private void EnterQueen_Click(object sender, EventArgs e)
+       
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FindQueens();
-            FindQueensMarcus();
+            clearBoard();
         }
-
-        static void FindQueensMarcus()
-        {
-            var finder = new checkCorrect();
-            finder.Find();
-        }
-        static void FindQueens()
-        {
-            string userName = Environment.UserName;
-            Stopwatch sw = Stopwatch.StartNew();
-            // the code that you want to measure comes here
-
-            Func<int[], string> getA1addresses = columnList => string.Concat(columnList.Select((col, i) => " " + (char)('a' + col) + (i + 1)));
-            List<int[]> columnLists = Find8Queens.FindAll();
-            string s = string.Join("\n", columnLists.Select(getA1addresses));
-
-            var input = s;
-            var regex = new Regex(@".{24}");
-            string result = regex.Replace(input, "$&" + Environment.NewLine);
-            string path = @"C:\Users\" + userName + @"\Desktop\BacktrackingAlgorithm.txt";
-            File.WriteAllText(@"C:\Users\" + userName + @"\Desktop\BacktrackingAlgorithm.txt", String.Empty);
-            if (!File.Exists(path))
-            {
-                File.Create(path);
-                StreamWriter tw = new StreamWriter(path);
-                tw.WriteLine(" All the unique solution of the 8 Queen Problem!");
-                tw.WriteLine(result);
-                string TimeItTakesToSaveTheFile = sw.ElapsedMilliseconds + "ms";
-                sw.Stop();
-                tw.WriteLine(TimeItTakesToSaveTheFile);
-                tw.Close();
-            }
-            else if (File.Exists(path))
-            {
-                using (var tw = new StreamWriter(path, true))
-                {
-                    tw.WriteLine("All the unique solution of the 8 Queen Problem");
-                    tw.WriteLine(result);
-                    tw.WriteLine(columnLists.Count.ToString() + " Results");
-                    string TimeItTakesToSaveTheFile = sw.ElapsedMilliseconds + "ms";
-                    sw.Stop();
-                    tw.WriteLine(TimeItTakesToSaveTheFile);
-                    tw.Close();
-                }
-            }
-        }
-
-
-
         // set up for New Game
-
         private void NewGame_Click(object sender, EventArgs e)
         {
 
             backgroundWorker3.RunWorkerAsync();
             // New Game dialogue
 
-            A1int = 0; A2int = 0; A3int = 0; A4int = 0; A5int = 0; A6int = 0; A7int = 0; A8int = 0;
-            B1int = 0; B2int = 0; B3int = 0; B4int = 0; B5int = 0; B6int = 0; B7int = 0; B8int = 0;
-            C1int = 0; C2int = 0; C3int = 0; C4int = 0; C5int = 0; C6int = 0; C7int = 0; C8int = 0;
-            D1int = 0; D2int = 0; D3int = 0; D4int = 0; D5int = 0; D6int = 0; D7int = 0; D8int = 0;
-            E1int = 0; E2int = 0; E3int = 0; E4int = 0; E5int = 0; E6int = 0; E7int = 0; E8int = 0;
-            F1int = 0; F2int = 0; F3int = 0; F4int = 0; F5int = 0; F6int = 0; F7int = 0; F8int = 0;
-            G1int = 0; G2int = 0; G3int = 0; G4int = 0; G5int = 0; G6int = 0; G7int = 0; G8int = 0;
-            H1int = 0; H2int = 0; H3int = 0; H4int = 0; H5int = 0; H6int = 0; H7int = 0; H8int = 0;
-
 
             MessageBox.Show("New Game /Put each of 8 queens (like a4 or g7) to safe place");        // New Game dialogue
 
             // remove queens from chessboard
-            // remove queens from chessboard
-            A1.Visible = false;     // remove queens from chessboard
-            A2.Visible = false;     // remove queens from chessboard
-            A3.Visible = false;     // remove queens from chessboard
-            A4.Visible = false;     // remove queens from chessboard
-            A5.Visible = false;     // remove queens from chessboard
-            A6.Visible = false;     // remove queens from chessboard
-            A7.Visible = false;     // remove queens from chessboard
-            A8.Visible = false;     // remove queens from chessboard
-                                    // remove queens from chessboard
-            B1.Visible = false;     // remove queens from chessboard
-            B2.Visible = false;     // remove queens from chessboard
-            B3.Visible = false;     // remove queens from chessboard
-            B4.Visible = false;     // remove queens from chessboard
-            B5.Visible = false;     // remove queens from chessboard
-            B6.Visible = false;     // remove queens from chessboard
-            B7.Visible = false;     // remove queens from chessboard
-            B8.Visible = false;     // remove queens from chessboard
-                                    // remove queens from chessboard
-            C1.Visible = false;     // remove queens from chessboard
-            C2.Visible = false;     // remove queens from chessboard
-            C3.Visible = false;     // remove queens from chessboard
-            C4.Visible = false;     // remove queens from chessboard
-            C5.Visible = false;     // remove queens from chessboard
-            C6.Visible = false;     // remove queens from chessboard
-            C7.Visible = false;     // remove queens from chessboard
-            C8.Visible = false;     // remove queens from chessboard
-                                    // remove queens from chessboard
-            D1.Visible = false;     // remove queens from chessboard
-            D2.Visible = false;     // remove queens from chessboard
-            D3.Visible = false;     // remove queens from chessboard
-            D4.Visible = false;     // remove queens from chessboard
-            D5.Visible = false;     // remove queens from chessboard
-            D6.Visible = false;     // remove queens from chessboard
-            D7.Visible = false;     // remove queens from chessboard
-            D8.Visible = false;     // remove queens from chessboard
-                                    // remove queens from chessboard
-            E1.Visible = false;     // remove queens from chessboard
-            E2.Visible = false;     // remove queens from chessboard
-            E3.Visible = false;     // remove queens from chessboard
-            E4.Visible = false;     // remove queens from chessboard
-            E5.Visible = false;     // remove queens from chessboard
-            E6.Visible = false;     // remove queens from chessboard
-            E7.Visible = false;     // remove queens from chessboard
-            E8.Visible = false;     // remove queens from chessboard
-                                    // remove queens from chessboard
-            F1.Visible = false;     // remove queens from chessboard
-            F2.Visible = false;     // remove queens from chessboard
-            F3.Visible = false;     // remove queens from chessboard
-            F4.Visible = false;     // remove queens from chessboard
-            F5.Visible = false;     // remove queens from chessboard
-            F6.Visible = false;     // remove queens from chessboard
-            F7.Visible = false;     // remove queens from chessboard
-            F8.Visible = false;     // remove queens from chessboard
-                                    // remove queens from chessboard
-            G1.Visible = false;     // remove queens from chessboard
-            G2.Visible = false;     // remove queens from chessboard
-            G3.Visible = false;     // remove queens from chessboard
-            G4.Visible = false;     // remove queens from chessboard
-            G5.Visible = false;     // remove queens from chessboard
-            G6.Visible = false;     // remove queens from chessboard
-            G7.Visible = false;     // remove queens from chessboard
-            G8.Visible = false;     // remove queens from chessboard
-                                    // remove queens from chessboard
-            H1.Visible = false;     // remove queens from chessboard
-            H2.Visible = false;     // remove queens from chessboard
-            H3.Visible = false;     // remove queens from chessboard
-            H4.Visible = false;     // remove queens from chessboard
-            H5.Visible = false;     // remove queens from chessboard
-            H6.Visible = false;     // remove queens from chessboard
-            H7.Visible = false;     // remove queens from chessboard
-            H8.Visible = false;     // remove queens from chessboard
-
-            smile.Visible = false;      // remove smile
-            frown.Visible = false;      // remove frown
-            next.Visible = false;
-
-            numberOfQueens = 0;      //remove safe queens
+            clearBoard();
 
         }
 
@@ -223,7 +79,7 @@ namespace WindowsFormsApplication1
         void congrat(int QueenNumber) { if (QueenNumber == 8) MessageBox.Show(" Congratulations! All 8 queens are safe"); }
 
         // this function evaluates queens' positions on chessboard 
-        string queenposition(int qX_shift, int qY_shift, String[,] Chess_Board)
+        void queenposition(int qX_shift, int qY_shift, String[,] Chess_Board)
         {
             for (int j = 1; j < 9; j++)
             {
@@ -283,1558 +139,56 @@ namespace WindowsFormsApplication1
                 if ((xnew == 8) || (ynew == 1)) break;
             };
 
-            return "0";
+            return;
 
 
         }
 
 
-        private void btnA1_Click(object sender, EventArgs e)
+       
+        private void clickButton(object sender, EventArgs e)
         {
-            if (A1int == 0)
+            Button clickedButton = (Button)sender;
+            string position = clickedButton.Name.Substring(3);
+            Control qPosition=this.Controls.Find(position, true)[0];
+            PictureBox positionClicked = (PictureBox)qPosition;
+            if (!positionClicked.Visible)
             {
                 if (numberOfQueens < 8)
                 {
                     next.Visible = false;
                     numberOfQueens++;
-                    A1int++;
-                    checkQueen("a1");
+                    checkQueen(position);
                 }
                 else
                 {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
+                    MessageBox.Show("Nuk mund të vendosen më shumë se 8 mbretëresha!");
                 }
             }
             else
             {
                 next.Visible = true;
-                A1.Visible = false;
-                A1int = 0;
+                positionClicked.Visible = false;
                 numberOfQueens--;
             }
         }
-        private void btnA2_Click(object sender, EventArgs e)
+      
+
+        private void listZgjidhjet_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (A2int == 0)
+            if (listZgjidhjet.SelectedIndex != -1)
             {
-                if (numberOfQueens < 8)
+                clearBoard();
+                char[] zgjidhja = listZgjidhjet.SelectedItem.ToString().ToCharArray();
+                for(int i = zgjidhja.Length; i > 0; i--)
                 {
-                    next.Visible = false;
-                    numberOfQueens++;
-                    A2int++;
-                    checkQueen("a2");
+                    checkQueen(zgjidhja[i-1] + i.ToString());
                 }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                A2.Visible = false;
-                A2int = 0;
-                numberOfQueens--;
-                //checkQueen2("a2");
-            }
-        }
-        private void btnA3_Click(object sender, EventArgs e)
-        {
-            if (A3int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    numberOfQueens++;
-                    A3int++;
-                    checkQueen("a3");
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                A3.Visible = false;
-                A3int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnA4_Click(object sender, EventArgs e)
-        {
-            if (A4int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    A4int++;
-                    checkQueen("a4");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                A4.Visible = false;
-                A4int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnA5_Click(object sender, EventArgs e)
-        {
-            if (A5int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    A5int++;
-                    checkQueen("a5");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                A5.Visible = false;
-                A5int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnA6_Click(object sender, EventArgs e)
-        {
-            if (A6int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    A6int++;
-                    checkQueen("a6");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                A6.Visible = false;
-                A6int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnA7_Click(object sender, EventArgs e)
-        {
-            if (A7int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    A7int++;
-                    checkQueen("a7");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                A7.Visible = false;
-                A7int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnA8_Click(object sender, EventArgs e)
-        {
-            if (A8int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    A8int++;
-                    checkQueen("a8");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                A8.Visible = false;
-                A8int = 0;
-                numberOfQueens--;
+
             }
         }
 
-        private void btnB1_Click(object sender, EventArgs e)
-        {
-            if (B1int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    B1int++;
-                    checkQueen("b1");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                B1.Visible = false;
-                B1int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnB2_Click(object sender, EventArgs e)
-        {
-            if (B2int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    B2int++;
-                    checkQueen("b2");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                B2.Visible = false;
-                B2int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnB3_Click(object sender, EventArgs e)
-        {
-            if (B3int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    B3int++;
-                    checkQueen("b3");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                B3.Visible = false;
-                B3int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnB4_Click(object sender, EventArgs e)
-        {
-            if (B4int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    B4int++;
-                    checkQueen("b4");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                B4.Visible = false;
-                B4int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnB5_Click(object sender, EventArgs e)
-        {
-            if (B5int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    B5int++;
-                    checkQueen("b5");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                B5.Visible = false;
-                B5int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnB6_Click(object sender, EventArgs e)
-        {
-            if (B6int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    B6int++;
-                    checkQueen("b6");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                B6.Visible = false;
-                B6int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnB7_Click(object sender, EventArgs e)
-        {
-            if (B7int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    B7int++;
-                    checkQueen("b7");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                B7.Visible = false;
-                B7int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnB8_Click(object sender, EventArgs e)
-        {
-            if (B8int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    B8int++;
-                    checkQueen("b8");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                B8.Visible = false;
-                B8int = 0;
-                numberOfQueens--;
-            }
-        }
-
-        private void btnC1_Click(object sender, EventArgs e)
-        {
-            if (C1int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    C1int++;
-                    checkQueen("c1");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                C1.Visible = false;
-                C1int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnC2_Click(object sender, EventArgs e)
-        {
-            if (C2int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    C2int++;
-                    checkQueen("c2");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                C2.Visible = false;
-                C2int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnC3_Click(object sender, EventArgs e)
-        {
-            if (C3int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    C3int++;
-                    checkQueen("c3");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                C3.Visible = false;
-                C3int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnC4_Click(object sender, EventArgs e)
-        {
-            if (C4int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    C4int++;
-                    checkQueen("c4");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                C4.Visible = false;
-                C4int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnC5_Click(object sender, EventArgs e)
-        {
-            if (C5int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    C5int++;
-                    checkQueen("c5");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                C5.Visible = false;
-                C5int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnC6_Click(object sender, EventArgs e)
-        {
-            if (C6int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    C6int++;
-                    checkQueen("c6");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                C6.Visible = false;
-                C6int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnC7_Click(object sender, EventArgs e)
-        {
-            if (C7int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    C7int++;
-                    checkQueen("c7");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                C7.Visible = false;
-                C7int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnC8_Click(object sender, EventArgs e)
-        {
-            if (C8int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    C8int++;
-                    checkQueen("c8");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                C8.Visible = false;
-                C8int = 0;
-                numberOfQueens--;
-            }
-
-        }
-
-        private void btnD1_Click(object sender, EventArgs e)
-        {
-            if (D1int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    D1int++;
-                    checkQueen("d1");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                D1.Visible = false;
-                D1int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnD2_Click(object sender, EventArgs e)
-        {
-            if (D2int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    D2int++;
-                    checkQueen("d2");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                next.Visible = true;
-                D2.Visible = false;
-                D2int = 0;
-                numberOfQueens--;
-            }
-        }
-        private void btnD3_Click(object sender, EventArgs e)
-        {
-            if (D3int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    D3int++;
-                    checkQueen("d3");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                D3.Visible = false;
-                D3int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnD4_Click(object sender, EventArgs e)
-        {
-            if (D4int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    D4int++;
-                    checkQueen("d4");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                D4.Visible = false;
-                D4int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnD5_Click(object sender, EventArgs e)
-        {
-            if (D5int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    D5int++;
-                    checkQueen("d5");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                D5.Visible = false;
-                D5int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnD6_Click(object sender, EventArgs e)
-        {
-            if (D6int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    D6int++;
-                    checkQueen("d6");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                D6.Visible = false;
-                D6int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnD7_Click(object sender, EventArgs e)
-        {
-            if (D7int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    D7int++;
-                    checkQueen("d7");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                D7.Visible = false;
-                D7int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnD8_Click(object sender, EventArgs e)
-        {
-            if (D8int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    D8int++;
-                    checkQueen("d8");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                D8.Visible = false;
-                D8int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-
-        private void btnE1_Click(object sender, EventArgs e)
-        {
-            if (E1int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    E1int++;
-                    checkQueen("e1");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                E1.Visible = false;
-                E1int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnE2_Click(object sender, EventArgs e)
-        {
-            if (E2int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    E2int++;
-                    checkQueen("e2");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                E2.Visible = false;
-                E2int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnE3_Click(object sender, EventArgs e)
-        {
-            if (E3int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    E3int++;
-                    checkQueen("e3");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                E3.Visible = false;
-                E3int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnE4_Click(object sender, EventArgs e)
-        {
-            if (E4int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    E4int++;
-                    checkQueen("e4");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                E4.Visible = false;
-                E4int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnE5_Click(object sender, EventArgs e)
-        {
-            if (E5int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    E5int++;
-                    checkQueen("e5");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                E5.Visible = false;
-                E5int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnE6_Click(object sender, EventArgs e)
-        {
-            if (E6int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    E6int++;
-                    checkQueen("e6");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                E6.Visible = false;
-                E6int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnE7_Click(object sender, EventArgs e)
-        {
-            if (E7int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    E7int++;
-                    checkQueen("e7");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                E7.Visible = false;
-                E7int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnE8_Click(object sender, EventArgs e)
-        {
-            if (E8int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    E8int++;
-                    checkQueen("e8");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                E8.Visible = false;
-                E8int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-
-        private void btnF1_Click(object sender, EventArgs e)
-        {
-            if (F1int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    F1int++;
-                    checkQueen("f1");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                F1.Visible = false;
-                F1int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnF2_Click(object sender, EventArgs e)
-        {
-            if (F2int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    F2int++;
-                    checkQueen("f2");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                F2.Visible = false;
-                F2int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnF3_Click(object sender, EventArgs e)
-        {
-            if (F3int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    F3int++;
-                    checkQueen("f3");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                F3.Visible = false;
-                F3int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnF4_Click(object sender, EventArgs e)
-        {
-            if (F4int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    F4int++;
-                    checkQueen("f4");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                F4.Visible = false;
-                F4int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnF5_Click(object sender, EventArgs e)
-        {
-            if (F5int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    F5int++;
-                    checkQueen("f5");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                F5.Visible = false;
-                F5int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnF6_Click(object sender, EventArgs e)
-        {
-            if (F6int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    F6int++;
-                    checkQueen("f6");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                F6.Visible = false;
-                F6int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnF7_Click(object sender, EventArgs e)
-        {
-            if (F7int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    F7int++;
-                    checkQueen("f7");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                F7.Visible = false;
-                F7int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnF8_Click(object sender, EventArgs e)
-        {
-            if (F8int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    F8int++;
-                    checkQueen("f8");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                F8.Visible = false;
-                F8int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-
-        private void btnG1_Click(object sender, EventArgs e)
-        {
-            if (G1int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    G1int++;
-                    checkQueen("g1");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                G1.Visible = false;
-                G1int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnG2_Click(object sender, EventArgs e)
-        {
-            if (G2int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    G2int++;
-                    checkQueen("g2");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                G2.Visible = false;
-                G2int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnG3_Click(object sender, EventArgs e)
-        {
-            if (G3int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    G3int++;
-                    checkQueen("g3");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                G3.Visible = false;
-                G3int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnG4_Click(object sender, EventArgs e)
-        {
-            if (G4int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    G4int++;
-                    checkQueen("g4");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                G4.Visible = false;
-                G4int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnG5_Click(object sender, EventArgs e)
-        {
-            if (G5int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    G5int++;
-                    checkQueen("g5");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                G5.Visible = false;
-                G5int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnG6_Click(object sender, EventArgs e)
-        {
-            if (G6int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    G6int++;
-                    checkQueen("g6");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                G6.Visible = false;
-                G6int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnG7_Click(object sender, EventArgs e)
-        {
-            if (G7int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    G7int++;
-                    checkQueen("g7");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                G7.Visible = false;
-                G7int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnG8_Click(object sender, EventArgs e)
-        {
-            if (G8int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    G8int++;
-                    checkQueen("g8");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                G8.Visible = false;
-                G8int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-
-        private void btnH1_Click(object sender, EventArgs e)
-        {
-            if (H1int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    H1int++;
-                    checkQueen("h1");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                H1.Visible = false;
-                H1int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnH2_Click(object sender, EventArgs e)
-        {
-            if (H2int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    H2int++;
-                    checkQueen("h2");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                H2.Visible = false;
-                H2int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnH3_Click(object sender, EventArgs e)
-        {
-            if (H3int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    H3int++;
-                    checkQueen("h3");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                H3.Visible = false;
-                H3int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnH4_Click(object sender, EventArgs e)
-        {
-            if (H4int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    H4int++;
-                    checkQueen("h4");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                H4.Visible = false;
-                H4int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void button17_Click(object sender, EventArgs e)
-        {
-            if (H5int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    H5int++;
-                    numberOfQueens++;
-                    checkQueen("h5");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                H5.Visible = false;
-                H5int--;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnH6_Click(object sender, EventArgs e)
-        {
-            if (H6int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    H6int++;
-                    checkQueen("h6");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                H6.Visible = false;
-                H6int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnH7_Click(object sender, EventArgs e)
-        {
-            if (H7int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    H7int++;
-                    checkQueen("h7");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                H7.Visible = false;
-                H7int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
-        private void btnH8_Click(object sender, EventArgs e)
-        {
-            if (H8int == 0)
-            {
-                if (numberOfQueens < 8)
-                {
-                    next.Visible = false;
-                    H8int++;
-                    checkQueen("h8");
-                    numberOfQueens++;
-                }
-                else
-                {
-                    MessageBox.Show("The number of Queen is more than 8, you can put just 8 Queen in the table!");
-                }
-            }
-            else
-            {
-                H8.Visible = false;
-                H8int = 0;
-                numberOfQueens--;
-                next.Visible = true;
-            }
-        }
+     
 
         private void checkQueen(string position)
         {
@@ -2042,44 +396,105 @@ namespace WindowsFormsApplication1
 
         next:;
         }
+        private void clearBoard()
+        {
+            // remove queens from chessboard
+            A1.Visible = false;     // remove queens from chessboard
+            A2.Visible = false;     // remove queens from chessboard
+            A3.Visible = false;     // remove queens from chessboard
+            A4.Visible = false;     // remove queens from chessboard
+            A5.Visible = false;     // remove queens from chessboard
+            A6.Visible = false;     // remove queens from chessboard
+            A7.Visible = false;     // remove queens from chessboard
+            A8.Visible = false;     // remove queens from chessboard
+                                    // remove queens from chessboard
+            B1.Visible = false;     // remove queens from chessboard
+            B2.Visible = false;     // remove queens from chessboard
+            B3.Visible = false;     // remove queens from chessboard
+            B4.Visible = false;     // remove queens from chessboard
+            B5.Visible = false;     // remove queens from chessboard
+            B6.Visible = false;     // remove queens from chessboard
+            B7.Visible = false;     // remove queens from chessboard
+            B8.Visible = false;     // remove queens from chessboard
+                                    // remove queens from chessboard
+            C1.Visible = false;     // remove queens from chessboard
+            C2.Visible = false;     // remove queens from chessboard
+            C3.Visible = false;     // remove queens from chessboard
+            C4.Visible = false;     // remove queens from chessboard
+            C5.Visible = false;     // remove queens from chessboard
+            C6.Visible = false;     // remove queens from chessboard
+            C7.Visible = false;     // remove queens from chessboard
+            C8.Visible = false;     // remove queens from chessboard
+                                    // remove queens from chessboard
+            D1.Visible = false;     // remove queens from chessboard
+            D2.Visible = false;     // remove queens from chessboard
+            D3.Visible = false;     // remove queens from chessboard
+            D4.Visible = false;     // remove queens from chessboard
+            D5.Visible = false;     // remove queens from chessboard
+            D6.Visible = false;     // remove queens from chessboard
+            D7.Visible = false;     // remove queens from chessboard
+            D8.Visible = false;     // remove queens from chessboard
+                                    // remove queens from chessboard
+            E1.Visible = false;     // remove queens from chessboard
+            E2.Visible = false;     // remove queens from chessboard
+            E3.Visible = false;     // remove queens from chessboard
+            E4.Visible = false;     // remove queens from chessboard
+            E5.Visible = false;     // remove queens from chessboard
+            E6.Visible = false;     // remove queens from chessboard
+            E7.Visible = false;     // remove queens from chessboard
+            E8.Visible = false;     // remove queens from chessboard
+                                    // remove queens from chessboard
+            F1.Visible = false;     // remove queens from chessboard
+            F2.Visible = false;     // remove queens from chessboard
+            F3.Visible = false;     // remove queens from chessboard
+            F4.Visible = false;     // remove queens from chessboard
+            F5.Visible = false;     // remove queens from chessboard
+            F6.Visible = false;     // remove queens from chessboard
+            F7.Visible = false;     // remove queens from chessboard
+            F8.Visible = false;     // remove queens from chessboard
+                                    // remove queens from chessboard
+            G1.Visible = false;     // remove queens from chessboard
+            G2.Visible = false;     // remove queens from chessboard
+            G3.Visible = false;     // remove queens from chessboard
+            G4.Visible = false;     // remove queens from chessboard
+            G5.Visible = false;     // remove queens from chessboard
+            G6.Visible = false;     // remove queens from chessboard
+            G7.Visible = false;     // remove queens from chessboard
+            G8.Visible = false;     // remove queens from chessboard
+                                    // remove queens from chessboard
+            H1.Visible = false;     // remove queens from chessboard
+            H2.Visible = false;     // remove queens from chessboard
+            H3.Visible = false;     // remove queens from chessboard
+            H4.Visible = false;     // remove queens from chessboard
+            H5.Visible = false;     // remove queens from chessboard
+            H6.Visible = false;     // remove queens from chessboard
+            H7.Visible = false;     // remove queens from chessboard
+            H8.Visible = false;     // remove queens from chessboard
+
+            smile.Visible = false;      // remove smile
+            frown.Visible = false;      // remove frown
+            next.Visible = true;
+
+            numberOfQueens = 0;      //remove safe queens
+
+        }
 
         private void btnTreeAlgorithm_Click(object sender, EventArgs e)
         {
             string userName = Environment.UserName;
-            Stopwatch sw = Stopwatch.StartNew();
+            
             // the code that you want to measure comes here
 
-            new Position(0, Int32.MinValue, null).WalkThroughTree();
-            string textToPrint = Environment.NewLine + Position.AllSolution + Environment.NewLine + "Queens/Squares: " + Position.NumberOfQueens.ToString("#,##0");
-            textToPrint += Environment.NewLine + "Attempts: " + Position.NumberOfAttempts.ToString("#,##0");
-            textToPrint += Environment.NewLine + "\nNodes: " + (Position.NumberOfNodes - 1).ToString("#,##0");
-            textToPrint += Environment.NewLine + "\nSolutions: " + Position.NumberOfSolutions.ToString("#,##0");
+            new Position(0, -1, null).WalkThroughTree();
+            for(int i = 0; i < Position.Solutions.Count; i++)
+            {
 
-            string path = @"C:\Users\" + userName + @"\Desktop\TreeAlgorithm.txt";
-            File.WriteAllText(@"C:\Users\" + userName + @"\Desktop\TreeAlgorithm.txt", String.Empty);
-            if (!File.Exists(path))
-            {
-                File.Create(path);
-                StreamWriter tw = new StreamWriter(path);
-                tw.WriteLine(" All the unique solution of the 8 Queen Problem!");
-                tw.WriteLine(textToPrint);
-                string TimeItTakesToSaveTheFile = sw.ElapsedMilliseconds + "ms";
-                sw.Stop();
-                tw.WriteLine(TimeItTakesToSaveTheFile);
-                tw.Close();
+                listZgjidhjet.Items.Add(Position.Solutions[i].ToUpper());
             }
-            else if (File.Exists(path))
-            {
-                using (var tw = new StreamWriter(path, true))
-                {
-                    tw.WriteLine("All the unique solution of the 8 Queen Problem");
-                    tw.WriteLine(textToPrint);
-                    string TimeItTakesToSaveTheFile = sw.ElapsedMilliseconds + "ms";
-                    sw.Stop();
-                    tw.WriteLine(TimeItTakesToSaveTheFile);
-                    tw.Close();
-                }
-            }
+            label5.Text= Position.NumberOfAttempts.ToString("#,##0");
+            label6.Text = Position.NumberOfSolutions.ToString("#,##0");
+           
+
         }
     }
 }      

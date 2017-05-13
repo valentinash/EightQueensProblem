@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="CheckByBitOperations\CheckByBitOperations.cs" />
     <Compile Include="CheckByBitOperations\checkCorrect.cs" />
-    <Compile Include="Find8Queens.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
