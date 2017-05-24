@@ -252,9 +252,9 @@
             // frown
             // 
             this.frown.Image = ((System.Drawing.Image)(resources.GetObject("frown.Image")));
-            this.frown.Location = new System.Drawing.Point(560, 23);
+            this.frown.Location = new System.Drawing.Point(586, 31);
             this.frown.Name = "frown";
-            this.frown.Size = new System.Drawing.Size(172, 138);
+            this.frown.Size = new System.Drawing.Size(265, 143);
             this.frown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.frown.TabIndex = 318;
             this.frown.TabStop = false;
@@ -1343,9 +1343,9 @@
             // smile
             // 
             this.smile.Image = ((System.Drawing.Image)(resources.GetObject("smile.Image")));
-            this.smile.Location = new System.Drawing.Point(560, 23);
+            this.smile.Location = new System.Drawing.Point(586, 31);
             this.smile.Name = "smile";
-            this.smile.Size = new System.Drawing.Size(169, 138);
+            this.smile.Size = new System.Drawing.Size(265, 143);
             this.smile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.smile.TabIndex = 317;
             this.smile.TabStop = false;
@@ -2319,9 +2319,9 @@
             // 
             this.next.BackColor = System.Drawing.Color.Transparent;
             this.next.Image = ((System.Drawing.Image)(resources.GetObject("next.Image")));
-            this.next.Location = new System.Drawing.Point(558, 23);
+            this.next.Location = new System.Drawing.Point(586, 31);
             this.next.Name = "next";
-            this.next.Size = new System.Drawing.Size(174, 138);
+            this.next.Size = new System.Drawing.Size(265, 143);
             this.next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.next.TabIndex = 387;
             this.next.TabStop = false;

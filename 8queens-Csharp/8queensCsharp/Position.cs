@@ -6,60 +6,60 @@ namespace WindowsFormsApplication1
 {
     public class Position
     {
-        public static long calculatedTime = 0;
-        public static int NumberOfAttempts, NumberOfNodes, NumberOfSolutions, NumberOfQueens = 8; // n queens
-        public static string AllSolution = "";
-        public static List<string> Solutions = new List<string>();
-        private static Position queenAbove;
-        private int line, row;
-        private Position parent;
+        public static long LlogaritKohen = 0;
+        public static int NumriTentimeve, NumriNyjeve, NumriZgjidhjeve, NumriMbretereshave = 8; // n queens
+        public static string TeGjithaZgjidhjet = "";
+        public static List<string> Zgjidhjet = new List<string>();
+        private static Position MbretereshaMbi;
+        private int line, Rresht;
+        private Position Prindi;
 
-        public Position(int Line, int Row, Position Parent)
+        public Position(int Line, int rresht, Position prind)
         {
             line = Line;
-            row = Row;
-            parent = Parent;
-            NumberOfNodes++;
+            Rresht = rresht;
+            Prindi = prind;
+            NumriNyjeve++;
         }
 
-        public void WalkThroughTree()
+        public void EcniNeperPeme()
         {
             Stopwatch sw = Stopwatch.StartNew();
-            if (line == NumberOfQueens) // last line (=number of queens) reached: solution
+            if (line == NumriMbretereshave) // linja e fundit (= NumriMbretereshave) arrihet: zgjidhja
             {
-                //NumberOfSolutions++; // count only
-                PrintSolution(this); // print solutions
-                calculatedTime = sw.ElapsedMilliseconds;
+                //NumriZgjidhjeve++; // veteme i numeron
+                PrintojZgjidhjet(this); // shtyp zgjidhjet
+                LlogaritKohen = sw.ElapsedMilliseconds;
                 sw.Stop();
                 return;
             }
-            for (var r = 0; r < NumberOfQueens; r++) // try all rows in next line
+            for (var r = 0; r < NumriMbretereshave; r++) // provoi te gjithe rreshtat ne linjen e ardhshem
             {
-                NumberOfAttempts++;
-                queenAbove = this;
-                while (queenAbove.row >= 0 && r != queenAbove.row // vertical threat?
-                        && r - queenAbove.row != line + 1 - queenAbove.line // diagonal threat left?
-                        && queenAbove.row - r != line + 1 - queenAbove.line) // diagonal threat right?
-                    queenAbove = queenAbove.parent; // repeat check for all queens in previous lines
-                if (queenAbove.line == 0) // no threat found
-                    new Position(line + 1, r, this).WalkThroughTree(); // put queen on next line
+                NumriTentimeve++;
+                MbretereshaMbi = this;
+                while (MbretereshaMbi.Rresht >= 0 && r != MbretereshaMbi.Rresht // kercenimi vertikal?
+                        && r - MbretereshaMbi.Rresht != line + 1 - MbretereshaMbi.line // kercenimi diagonal majtas?
+                        && MbretereshaMbi.Rresht - r != line + 1 - MbretereshaMbi.line) // kercenimi diagonal djathtas?
+                    MbretereshaMbi = MbretereshaMbi.Prindi; // Përsëris kontrollimin për të gjitha mbretëreshat në linjat e mëparshme
+                if (MbretereshaMbi.line == 0) // asnje kercenim nuk u gjet
+                    new Position(line + 1, r, this).EcniNeperPeme(); // vendose mbretereshen ne vijen tjeter
             }
         }
-        private static void PrintSolution(Position Node)
+        private static void PrintojZgjidhjet(Position Nyja)
         {
-            NumberOfSolutions++;
-            string Solution="";
+            NumriZgjidhjeve++;
+            string Zgjidhja="";
             
-            while (Node.row >= 0)
+            while (Nyja.Rresht >= 0)
             {
             
-                AllSolution += (((char)('a' + Node.row)).ToString());
-                Solution += ((char)('a' + Node.row)).ToString();
+                TeGjithaZgjidhjet += (((char)('a' + Nyja.Rresht)).ToString());
+                Zgjidhja += ((char)('a' + Nyja.Rresht)).ToString();
                 
-                Node = Node.parent;
+                Nyja = Nyja.Prindi;
             }
-            Solutions.Add(Solution);
-            AllSolution += Environment.NewLine;
+            Zgjidhjet.Add(Zgjidhja);
+            TeGjithaZgjidhjet += Environment.NewLine;
         }
     }
 }
