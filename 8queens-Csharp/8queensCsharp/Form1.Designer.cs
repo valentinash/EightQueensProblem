@@ -176,6 +176,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.listZgjidhjet = new System.Windows.Forms.ListBox();
+            this.btnBranchAndBound = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.frown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.A7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.A8)).BeginInit();
@@ -254,11 +257,12 @@
             this.frown.Image = ((System.Drawing.Image)(resources.GetObject("frown.Image")));
             this.frown.Location = new System.Drawing.Point(586, 31);
             this.frown.Name = "frown";
-            this.frown.Size = new System.Drawing.Size(265, 143);
+            this.frown.Size = new System.Drawing.Size(185, 143);
             this.frown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.frown.TabIndex = 318;
             this.frown.TabStop = false;
             this.frown.Visible = false;
+            this.frown.Click += new System.EventHandler(this.frown_Click);
             // 
             // NewGame
             // 
@@ -269,7 +273,7 @@
             this.NewGame.Name = "NewGame";
             this.NewGame.Size = new System.Drawing.Size(60, 45);
             this.NewGame.TabIndex = 316;
-            this.NewGame.Text = "Clear";
+            this.NewGame.Text = "Zbraz";
             this.NewGame.UseVisualStyleBackColor = true;
             this.NewGame.Click += new System.EventHandler(this.NewGame_Click);
             // 
@@ -289,6 +293,7 @@
             this.A7.TabIndex = 255;
             this.A7.TabStop = false;
             this.A7.Visible = false;
+            this.A7.Click += new System.EventHandler(this.A7_Click);
             // 
             // A8
             // 
@@ -306,6 +311,7 @@
             this.A8.TabIndex = 256;
             this.A8.TabStop = false;
             this.A8.Visible = false;
+            this.A8.Click += new System.EventHandler(this.A8_Click);
             // 
             // A6
             // 
@@ -323,6 +329,7 @@
             this.A6.TabIndex = 254;
             this.A6.TabStop = false;
             this.A6.Visible = false;
+            this.A6.Click += new System.EventHandler(this.A6_Click);
             // 
             // A5
             // 
@@ -340,6 +347,7 @@
             this.A5.TabIndex = 253;
             this.A5.TabStop = false;
             this.A5.Visible = false;
+            this.A5.Click += new System.EventHandler(this.A5_Click);
             // 
             // A4
             // 
@@ -357,6 +365,7 @@
             this.A4.TabIndex = 252;
             this.A4.TabStop = false;
             this.A4.Visible = false;
+            this.A4.Click += new System.EventHandler(this.A4_Click);
             // 
             // A3
             // 
@@ -374,6 +383,7 @@
             this.A3.TabIndex = 251;
             this.A3.TabStop = false;
             this.A3.Visible = false;
+            this.A3.Click += new System.EventHandler(this.A3_Click);
             // 
             // A2
             // 
@@ -391,6 +401,7 @@
             this.A2.TabIndex = 250;
             this.A2.TabStop = false;
             this.A2.Visible = false;
+            this.A2.Click += new System.EventHandler(this.A2_Click);
             // 
             // A1
             // 
@@ -408,6 +419,7 @@
             this.A1.TabIndex = 249;
             this.A1.TabStop = false;
             this.A1.Visible = false;
+            this.A1.Click += new System.EventHandler(this.A1_Click);
             // 
             // B8
             // 
@@ -425,6 +437,7 @@
             this.B8.TabIndex = 264;
             this.B8.TabStop = false;
             this.B8.Visible = false;
+            this.B8.Click += new System.EventHandler(this.B8_Click);
             // 
             // B7
             // 
@@ -442,6 +455,7 @@
             this.B7.TabIndex = 263;
             this.B7.TabStop = false;
             this.B7.Visible = false;
+            this.B7.Click += new System.EventHandler(this.B7_Click);
             // 
             // B6
             // 
@@ -458,6 +472,7 @@
             this.B6.TabIndex = 262;
             this.B6.TabStop = false;
             this.B6.Visible = false;
+            this.B6.Click += new System.EventHandler(this.B6_Click);
             // 
             // B5
             // 
@@ -474,6 +489,7 @@
             this.B5.TabIndex = 261;
             this.B5.TabStop = false;
             this.B5.Visible = false;
+            this.B5.Click += new System.EventHandler(this.B5_Click);
             // 
             // B4
             // 
@@ -490,6 +506,7 @@
             this.B4.TabIndex = 260;
             this.B4.TabStop = false;
             this.B4.Visible = false;
+            this.B4.Click += new System.EventHandler(this.B4_Click);
             // 
             // B3
             // 
@@ -506,6 +523,7 @@
             this.B3.TabIndex = 259;
             this.B3.TabStop = false;
             this.B3.Visible = false;
+            this.B3.Click += new System.EventHandler(this.B3_Click);
             // 
             // B2
             // 
@@ -522,6 +540,7 @@
             this.B2.TabIndex = 258;
             this.B2.TabStop = false;
             this.B2.Visible = false;
+            this.B2.Click += new System.EventHandler(this.B2_Click);
             // 
             // B1
             // 
@@ -538,6 +557,7 @@
             this.B1.TabIndex = 257;
             this.B1.TabStop = false;
             this.B1.Visible = false;
+            this.B1.Click += new System.EventHandler(this.B1_Click);
             // 
             // C8
             // 
@@ -554,6 +574,7 @@
             this.C8.TabIndex = 272;
             this.C8.TabStop = false;
             this.C8.Visible = false;
+            this.C8.Click += new System.EventHandler(this.C8_Click);
             // 
             // C7
             // 
@@ -570,6 +591,7 @@
             this.C7.TabIndex = 271;
             this.C7.TabStop = false;
             this.C7.Visible = false;
+            this.C7.Click += new System.EventHandler(this.C7_Click);
             // 
             // C6
             // 
@@ -586,6 +608,7 @@
             this.C6.TabIndex = 270;
             this.C6.TabStop = false;
             this.C6.Visible = false;
+            this.C6.Click += new System.EventHandler(this.C6_Click);
             // 
             // C5
             // 
@@ -602,6 +625,7 @@
             this.C5.TabIndex = 269;
             this.C5.TabStop = false;
             this.C5.Visible = false;
+            this.C5.Click += new System.EventHandler(this.C5_Click);
             // 
             // C4
             // 
@@ -618,6 +642,7 @@
             this.C4.TabIndex = 268;
             this.C4.TabStop = false;
             this.C4.Visible = false;
+            this.C4.Click += new System.EventHandler(this.C4_Click);
             // 
             // C3
             // 
@@ -634,6 +659,7 @@
             this.C3.TabIndex = 267;
             this.C3.TabStop = false;
             this.C3.Visible = false;
+            this.C3.Click += new System.EventHandler(this.C3_Click);
             // 
             // D7
             // 
@@ -650,6 +676,7 @@
             this.D7.TabIndex = 279;
             this.D7.TabStop = false;
             this.D7.Visible = false;
+            this.D7.Click += new System.EventHandler(this.D7_Click);
             // 
             // backgroundWorker1
             // 
@@ -674,6 +701,7 @@
             this.C2.TabIndex = 266;
             this.C2.TabStop = false;
             this.C2.Visible = false;
+            this.C2.Click += new System.EventHandler(this.C2_Click);
             // 
             // C1
             // 
@@ -690,6 +718,7 @@
             this.C1.TabIndex = 265;
             this.C1.TabStop = false;
             this.C1.Visible = false;
+            this.C1.Click += new System.EventHandler(this.C1_Click);
             // 
             // D8
             // 
@@ -706,6 +735,7 @@
             this.D8.TabIndex = 280;
             this.D8.TabStop = false;
             this.D8.Visible = false;
+            this.D8.Click += new System.EventHandler(this.D8_Click);
             // 
             // D6
             // 
@@ -722,6 +752,7 @@
             this.D6.TabIndex = 278;
             this.D6.TabStop = false;
             this.D6.Visible = false;
+            this.D6.Click += new System.EventHandler(this.D6_Click);
             // 
             // D5
             // 
@@ -738,6 +769,7 @@
             this.D5.TabIndex = 277;
             this.D5.TabStop = false;
             this.D5.Visible = false;
+            this.D5.Click += new System.EventHandler(this.D5_Click);
             // 
             // D4
             // 
@@ -754,6 +786,7 @@
             this.D4.TabIndex = 276;
             this.D4.TabStop = false;
             this.D4.Visible = false;
+            this.D4.Click += new System.EventHandler(this.D4_Click);
             // 
             // D3
             // 
@@ -770,6 +803,7 @@
             this.D3.TabIndex = 275;
             this.D3.TabStop = false;
             this.D3.Visible = false;
+            this.D3.Click += new System.EventHandler(this.D3_Click);
             // 
             // D2
             // 
@@ -786,6 +820,7 @@
             this.D2.TabIndex = 274;
             this.D2.TabStop = false;
             this.D2.Visible = false;
+            this.D2.Click += new System.EventHandler(this.D2_Click);
             // 
             // D1
             // 
@@ -802,6 +837,7 @@
             this.D1.TabIndex = 273;
             this.D1.TabStop = false;
             this.D1.Visible = false;
+            this.D1.Click += new System.EventHandler(this.D1_Click);
             // 
             // E8
             // 
@@ -818,6 +854,7 @@
             this.E8.TabIndex = 288;
             this.E8.TabStop = false;
             this.E8.Visible = false;
+            this.E8.Click += new System.EventHandler(this.E8_Click);
             // 
             // E7
             // 
@@ -834,6 +871,7 @@
             this.E7.TabIndex = 287;
             this.E7.TabStop = false;
             this.E7.Visible = false;
+            this.E7.Click += new System.EventHandler(this.E7_Click);
             // 
             // E6
             // 
@@ -850,6 +888,7 @@
             this.E6.TabIndex = 286;
             this.E6.TabStop = false;
             this.E6.Visible = false;
+            this.E6.Click += new System.EventHandler(this.E6_Click);
             // 
             // E5
             // 
@@ -866,6 +905,7 @@
             this.E5.TabIndex = 285;
             this.E5.TabStop = false;
             this.E5.Visible = false;
+            this.E5.Click += new System.EventHandler(this.E5_Click);
             // 
             // E4
             // 
@@ -882,6 +922,7 @@
             this.E4.TabIndex = 284;
             this.E4.TabStop = false;
             this.E4.Visible = false;
+            this.E4.Click += new System.EventHandler(this.E4_Click);
             // 
             // E3
             // 
@@ -898,6 +939,7 @@
             this.E3.TabIndex = 283;
             this.E3.TabStop = false;
             this.E3.Visible = false;
+            this.E3.Click += new System.EventHandler(this.E3_Click);
             // 
             // E2
             // 
@@ -914,6 +956,7 @@
             this.E2.TabIndex = 282;
             this.E2.TabStop = false;
             this.E2.Visible = false;
+            this.E2.Click += new System.EventHandler(this.E2_Click);
             // 
             // E1
             // 
@@ -930,6 +973,7 @@
             this.E1.TabIndex = 281;
             this.E1.TabStop = false;
             this.E1.Visible = false;
+            this.E1.Click += new System.EventHandler(this.E1_Click);
             // 
             // F8
             // 
@@ -946,6 +990,7 @@
             this.F8.TabIndex = 298;
             this.F8.TabStop = false;
             this.F8.Visible = false;
+            this.F8.Click += new System.EventHandler(this.F8_Click);
             // 
             // F7
             // 
@@ -962,6 +1007,7 @@
             this.F7.TabIndex = 296;
             this.F7.TabStop = false;
             this.F7.Visible = false;
+            this.F7.Click += new System.EventHandler(this.F7_Click);
             // 
             // F6
             // 
@@ -978,6 +1024,7 @@
             this.F6.TabIndex = 295;
             this.F6.TabStop = false;
             this.F6.Visible = false;
+            this.F6.Click += new System.EventHandler(this.F6_Click);
             // 
             // F5
             // 
@@ -994,6 +1041,7 @@
             this.F5.TabIndex = 293;
             this.F5.TabStop = false;
             this.F5.Visible = false;
+            this.F5.Click += new System.EventHandler(this.F5_Click);
             // 
             // F4
             // 
@@ -1010,6 +1058,7 @@
             this.F4.TabIndex = 292;
             this.F4.TabStop = false;
             this.F4.Visible = false;
+            this.F4.Click += new System.EventHandler(this.F4_Click);
             // 
             // F3
             // 
@@ -1026,6 +1075,7 @@
             this.F3.TabIndex = 291;
             this.F3.TabStop = false;
             this.F3.Visible = false;
+            this.F3.Click += new System.EventHandler(this.F3_Click);
             // 
             // F2
             // 
@@ -1042,6 +1092,7 @@
             this.F2.TabIndex = 290;
             this.F2.TabStop = false;
             this.F2.Visible = false;
+            this.F2.Click += new System.EventHandler(this.F2_Click);
             // 
             // F1
             // 
@@ -1058,6 +1109,7 @@
             this.F1.TabIndex = 289;
             this.F1.TabStop = false;
             this.F1.Visible = false;
+            this.F1.Click += new System.EventHandler(this.F1_Click);
             // 
             // G8
             // 
@@ -1074,6 +1126,7 @@
             this.G8.TabIndex = 306;
             this.G8.TabStop = false;
             this.G8.Visible = false;
+            this.G8.Click += new System.EventHandler(this.G8_Click);
             // 
             // G7
             // 
@@ -1090,6 +1143,7 @@
             this.G7.TabIndex = 305;
             this.G7.TabStop = false;
             this.G7.Visible = false;
+            this.G7.Click += new System.EventHandler(this.G7_Click);
             // 
             // G6
             // 
@@ -1106,6 +1160,7 @@
             this.G6.TabIndex = 304;
             this.G6.TabStop = false;
             this.G6.Visible = false;
+            this.G6.Click += new System.EventHandler(this.G6_Click);
             // 
             // G5
             // 
@@ -1122,6 +1177,7 @@
             this.G5.TabIndex = 303;
             this.G5.TabStop = false;
             this.G5.Visible = false;
+            this.G5.Click += new System.EventHandler(this.G5_Click);
             // 
             // G4
             // 
@@ -1138,6 +1194,7 @@
             this.G4.TabIndex = 302;
             this.G4.TabStop = false;
             this.G4.Visible = false;
+            this.G4.Click += new System.EventHandler(this.G4_Click);
             // 
             // G3
             // 
@@ -1154,6 +1211,7 @@
             this.G3.TabIndex = 301;
             this.G3.TabStop = false;
             this.G3.Visible = false;
+            this.G3.Click += new System.EventHandler(this.G3_Click);
             // 
             // G2
             // 
@@ -1170,6 +1228,7 @@
             this.G2.TabIndex = 300;
             this.G2.TabStop = false;
             this.G2.Visible = false;
+            this.G2.Click += new System.EventHandler(this.G2_Click);
             // 
             // G1
             // 
@@ -1186,6 +1245,7 @@
             this.G1.TabIndex = 299;
             this.G1.TabStop = false;
             this.G1.Visible = false;
+            this.G1.Click += new System.EventHandler(this.G1_Click);
             // 
             // H8
             // 
@@ -1202,6 +1262,7 @@
             this.H8.TabIndex = 314;
             this.H8.TabStop = false;
             this.H8.Visible = false;
+            this.H8.Click += new System.EventHandler(this.H8_Click);
             // 
             // H7
             // 
@@ -1218,6 +1279,7 @@
             this.H7.TabIndex = 313;
             this.H7.TabStop = false;
             this.H7.Visible = false;
+            this.H7.Click += new System.EventHandler(this.H7_Click);
             // 
             // H6
             // 
@@ -1234,6 +1296,7 @@
             this.H6.TabIndex = 312;
             this.H6.TabStop = false;
             this.H6.Visible = false;
+            this.H6.Click += new System.EventHandler(this.H6_Click);
             // 
             // H5
             // 
@@ -1250,6 +1313,7 @@
             this.H5.TabIndex = 311;
             this.H5.TabStop = false;
             this.H5.Visible = false;
+            this.H5.Click += new System.EventHandler(this.H5_Click);
             // 
             // label1
             // 
@@ -1260,7 +1324,8 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(251, 43);
             this.label1.TabIndex = 315;
-            this.label1.Text = "Select the place you want to add or remove the Queen!";
+            this.label1.Text = "Zgjedh vendin per te vendosur/hequr mbretereshen";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // H4
             // 
@@ -1277,6 +1342,7 @@
             this.H4.TabIndex = 310;
             this.H4.TabStop = false;
             this.H4.Visible = false;
+            this.H4.Click += new System.EventHandler(this.H4_Click);
             // 
             // H3
             // 
@@ -1293,6 +1359,7 @@
             this.H3.TabIndex = 309;
             this.H3.TabStop = false;
             this.H3.Visible = false;
+            this.H3.Click += new System.EventHandler(this.H3_Click);
             // 
             // H2
             // 
@@ -1309,6 +1376,7 @@
             this.H2.TabIndex = 308;
             this.H2.TabStop = false;
             this.H2.Visible = false;
+            this.H2.Click += new System.EventHandler(this.H2_Click);
             // 
             // H1
             // 
@@ -1325,6 +1393,7 @@
             this.H1.TabIndex = 307;
             this.H1.TabStop = false;
             this.H1.Visible = false;
+            this.H1.Click += new System.EventHandler(this.H1_Click);
             // 
             // Chessboard
             // 
@@ -1339,17 +1408,19 @@
             this.Chessboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Chessboard.TabIndex = 248;
             this.Chessboard.TabStop = false;
+            this.Chessboard.Click += new System.EventHandler(this.Chessboard_Click);
             // 
             // smile
             // 
             this.smile.Image = ((System.Drawing.Image)(resources.GetObject("smile.Image")));
             this.smile.Location = new System.Drawing.Point(586, 31);
             this.smile.Name = "smile";
-            this.smile.Size = new System.Drawing.Size(265, 143);
+            this.smile.Size = new System.Drawing.Size(185, 143);
             this.smile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.smile.TabIndex = 317;
             this.smile.TabStop = false;
             this.smile.Visible = false;
+            this.smile.Click += new System.EventHandler(this.smile_Click);
             // 
             // backgroundWorker3
             // 
@@ -2321,22 +2392,23 @@
             this.next.Image = ((System.Drawing.Image)(resources.GetObject("next.Image")));
             this.next.Location = new System.Drawing.Point(586, 31);
             this.next.Name = "next";
-            this.next.Size = new System.Drawing.Size(265, 143);
+            this.next.Size = new System.Drawing.Size(185, 143);
             this.next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.next.TabIndex = 387;
             this.next.TabStop = false;
+            this.next.Click += new System.EventHandler(this.next_Click);
             // 
             // btnTreeAlgorithm
             // 
-            this.btnTreeAlgorithm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTreeAlgorithm.BackColor = System.Drawing.Color.LightGray;
             this.btnTreeAlgorithm.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTreeAlgorithm.ForeColor = System.Drawing.Color.Transparent;
             this.btnTreeAlgorithm.Location = new System.Drawing.Point(6, 6);
             this.btnTreeAlgorithm.Name = "btnTreeAlgorithm";
-            this.btnTreeAlgorithm.Size = new System.Drawing.Size(163, 23);
+            this.btnTreeAlgorithm.Size = new System.Drawing.Size(157, 23);
             this.btnTreeAlgorithm.TabIndex = 388;
             this.btnTreeAlgorithm.Text = "Backtracking Algorithm";
-            this.btnTreeAlgorithm.UseVisualStyleBackColor = true;
+            this.btnTreeAlgorithm.UseVisualStyleBackColor = false;
             this.btnTreeAlgorithm.Click += new System.EventHandler(this.btnTreeAlgorithm_Click);
             // 
             // tabControl1
@@ -2352,7 +2424,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.Maroon;
+            this.tabPage1.BackColor = System.Drawing.Color.Silver;
             this.tabPage1.Controls.Add(this.NewGame);
             this.tabPage1.Controls.Add(this.btnA2);
             this.tabPage1.Controls.Add(this.label1);
@@ -2425,10 +2497,14 @@
             this.tabPage1.Size = new System.Drawing.Size(335, 327);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Provo vet!";
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.Maroon;
+            this.tabPage2.BackColor = System.Drawing.Color.DarkGray;
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.btnBranchAndBound);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label4);
@@ -2442,6 +2518,7 @@
             this.tabPage2.Size = new System.Drawing.Size(335, 327);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Zgjidhjet";
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // label6
             // 
@@ -2451,6 +2528,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 13);
             this.label6.TabIndex = 393;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -2460,6 +2538,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(0, 13);
             this.label5.TabIndex = 392;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -2470,6 +2549,7 @@
             this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 391;
             this.label4.Text = "Gjithsej zgjidhje:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -2480,6 +2560,7 @@
             this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 390;
             this.label3.Text = "Gjithsej prova:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -2490,23 +2571,59 @@
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 389;
             this.label2.Text = "Zgjidhjet: ";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // listZgjidhjet
             // 
-            this.listZgjidhjet.BackColor = System.Drawing.Color.Maroon;
+            this.listZgjidhjet.BackColor = System.Drawing.Color.Gray;
+            this.listZgjidhjet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listZgjidhjet.ForeColor = System.Drawing.Color.Transparent;
             this.listZgjidhjet.FormattingEnabled = true;
             this.listZgjidhjet.Location = new System.Drawing.Point(109, 53);
             this.listZgjidhjet.Name = "listZgjidhjet";
-            this.listZgjidhjet.Size = new System.Drawing.Size(220, 95);
+            this.listZgjidhjet.Size = new System.Drawing.Size(220, 93);
             this.listZgjidhjet.TabIndex = 0;
             this.listZgjidhjet.SelectedIndexChanged += new System.EventHandler(this.listZgjidhjet_SelectedIndexChanged);
+            // 
+            // btnBranchAndBound
+            // 
+            this.btnBranchAndBound.BackColor = System.Drawing.Color.LightGray;
+            this.btnBranchAndBound.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBranchAndBound.ForeColor = System.Drawing.Color.Transparent;
+            this.btnBranchAndBound.Location = new System.Drawing.Point(169, 6);
+            this.btnBranchAndBound.Name = "btnBranchAndBound";
+            this.btnBranchAndBound.Size = new System.Drawing.Size(163, 23);
+            this.btnBranchAndBound.TabIndex = 394;
+            this.btnBranchAndBound.Text = "Branch And Bound";
+            this.btnBranchAndBound.UseVisualStyleBackColor = false;
+            this.btnBranchAndBound.Click += new System.EventHandler(this.btnBranchAndBound_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(16, 283);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 13);
+            this.label7.TabIndex = 395;
+            this.label7.Text = "Koha: ";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Transparent;
+            this.label8.Location = new System.Drawing.Point(106, 283);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 13);
+            this.label8.TabIndex = 396;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Maroon;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(867, 554);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.next);
@@ -2578,7 +2695,7 @@
             this.Controls.Add(this.Chessboard);
             this.Controls.Add(this.smile);
             this.Name = "Form1";
-            this.Text = "C# - 8Queens on Chessboard";
+            this.Text = "Problemi i tete mbretereshave";
             ((System.ComponentModel.ISupportInitialize)(this.frown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.A7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.A8)).EndInit();
@@ -2803,6 +2920,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnBranchAndBound;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
     }
 }
 

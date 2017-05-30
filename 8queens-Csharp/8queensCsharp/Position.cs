@@ -4,33 +4,33 @@ using System.Diagnostics;
 
 namespace WindowsFormsApplication1
 {
-    public class Position
+    public class BackTracking
     {
         public static long LlogaritKohen = 0;
         public static int NumriTentimeve, NumriNyjeve, NumriZgjidhjeve, NumriMbretereshave = 8; // n queens
         public static string TeGjithaZgjidhjet = "";
         public static List<string> Zgjidhjet = new List<string>();
-        private static Position MbretereshaMbi;
+        private static BackTracking MbretereshaMbi;
         private int line, Rresht;
-        private Position Prindi;
-
-        public Position(int Line, int rresht, Position prind)
+        private BackTracking Prindi;
+        
+        public BackTracking(int Line, int rresht, BackTracking prind)
         {
             line = Line;
             Rresht = rresht;
             Prindi = prind;
             NumriNyjeve++;
+
         }
 
         public void EcniNeperPeme()
         {
-            Stopwatch sw = Stopwatch.StartNew();
+            
             if (line == NumriMbretereshave) // linja e fundit (= NumriMbretereshave) arrihet: zgjidhja
             {
-                //NumriZgjidhjeve++; // veteme i numeron
+                
                 PrintojZgjidhjet(this); // shtyp zgjidhjet
-                LlogaritKohen = sw.ElapsedMilliseconds;
-                sw.Stop();
+                
                 return;
             }
             for (var r = 0; r < NumriMbretereshave; r++) // provoi te gjithe rreshtat ne linjen e ardhshem
@@ -42,20 +42,20 @@ namespace WindowsFormsApplication1
                         && MbretereshaMbi.Rresht - r != line + 1 - MbretereshaMbi.line) // kercenimi diagonal djathtas?
                     MbretereshaMbi = MbretereshaMbi.Prindi; // Përsëris kontrollimin për të gjitha mbretëreshat në linjat e mëparshme
                 if (MbretereshaMbi.line == 0) // asnje kercenim nuk u gjet
-                    new Position(line + 1, r, this).EcniNeperPeme(); // vendose mbretereshen ne vijen tjeter
+                    new BackTracking(line + 1, r, this).EcniNeperPeme(); // vendose mbretereshen ne vijen tjeter
             }
         }
-        private static void PrintojZgjidhjet(Position Nyja)
+        private static void PrintojZgjidhjet(BackTracking Nyja)
         {
             NumriZgjidhjeve++;
-            string Zgjidhja="";
-            
+            string Zgjidhja = "";
+
             while (Nyja.Rresht >= 0)
             {
-            
+
                 TeGjithaZgjidhjet += (((char)('a' + Nyja.Rresht)).ToString());
                 Zgjidhja += ((char)('a' + Nyja.Rresht)).ToString();
-                
+
                 Nyja = Nyja.Prindi;
             }
             Zgjidhjet.Add(Zgjidhja);
